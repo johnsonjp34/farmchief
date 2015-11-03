@@ -2,7 +2,7 @@
 Planter Monitor Source
 
 This is the code necessary to interact with the IOIO
-board. (Please see circuit diagram). Also included is a basic UI to monitor your row units.
+board. (Please see circuit diagram). Also included is a basic UI to monitor your row units. The Farm Chief monitor module is Patent protected. IT MAY BE REPRODUCED FOR INDIVIDUAL USE. FOR COMMERCIAL REPRODUCTION please email investordirection@gmail.com for licensing. 
 
 To build a project using this code you will need to create an Android Project with the following libraries:
 
