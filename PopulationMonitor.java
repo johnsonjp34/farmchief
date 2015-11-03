@@ -4,10 +4,6 @@ import android.annotation.SuppressLint;
 
 
 import android.app.LoaderManager.LoaderCallbacks;
-
-
-
-
 import ioio.lib.api.AnalogInput;
 
 import ioio.lib.api.DigitalOutput;
@@ -35,9 +31,6 @@ import ioio.lib.api.exception.ConnectionLostException;
 import ioio.lib.util.AbstractIOIOActivity;
 import ioio.lib.util.BaseIOIOLooper;
 import ioio.lib.util.IOIOLooper;
-
-
-
 import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -56,7 +49,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -82,9 +74,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
-
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -98,37 +87,9 @@ import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.maps.android.SphericalUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import ioio.lib.api.DigitalInput;
 import ioio.lib.api.exception.ConnectionLostException;
 import ioio.lib.util.AbstractIOIOActivity;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -140,14 +101,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
-
-
-
-
-
-
-
-
 
 //LoaderCallbacks needed if you store and retrieve location data on background thread
 
@@ -165,6 +118,8 @@ public class PopulationMonitor extends IOIOActivity implements LocationListener,
 	    public static String rows;
 	    public static String width;
 	    public static double pubroundedacres;
+	
+	// For an 8 row planter you will need 8 digital input channels
 	
 	    private ProgressBar mProgress;
 	    private ProgressBar mProgress2;
@@ -193,7 +148,7 @@ public class PopulationMonitor extends IOIOActivity implements LocationListener,
     public static Marker mMarkerA;
     public static Marker mMarkerB;
    
-    Spinner spinner;
+    private Spinner spinner;
     public static LatLng previousPoint = null;
     public SQLiteDatabase mDB; 
     public static  String DATABASE_TABLE = "default a";
@@ -281,13 +236,7 @@ public class PopulationMonitor extends IOIOActivity implements LocationListener,
         setContentView(getLayoutId());
         setUpMapIfNeeded();
         
-       // mBtn1TextView = (TextView) findViewById(R.id.btn1TextView);
-		//mBtn2TextView = (TextView) findViewById(R.id.btn2TextView);
-		
-		
-		
-		
-		
+       //VISUAL REPRESENTATION OF PLANTER POPULATION	
         mProgress = (ProgressBar) findViewById(R.id.vertical_progressbar1);
         mProgress2 = (ProgressBar) findViewById(R.id.vertical_progressbar2);
         mProgress3 = (ProgressBar) findViewById(R.id.vertical_progressbar3);
@@ -322,6 +271,8 @@ currentpopulation = (TextView) findViewById(R.id.currentpopulation);
         }
     }
     
+    // function to quickly call GOOGLE Map Fragment 
+    
     protected GoogleMap getMap() {
         setUpMapIfNeeded();
         return mMap;
@@ -330,7 +281,7 @@ currentpopulation = (TextView) findViewById(R.id.currentpopulation);
         return R.layout.populationmonitor;
     }
     
-    
+    // MENU CONTROLS
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    MenuInflater inflater = getMenuInflater();
@@ -471,27 +422,14 @@ currentpopulation = (TextView) findViewById(R.id.currentpopulation);
 		return super.onOptionsItemSelected(item);
 	}
     
+    // END OF MENU CONTROLS
 	
 
     protected void startDemo()  {
     	
 		currentpopulation = (TextView) findViewById(R.id.currentpopulation);
 	
-    	
-			
-
-
-	
-	
-	
-       // mTextView = (TextView) findViewById(R.id.textView50000);
-      // lineDistanceView = (TextView) findViewById(R.id.textView3);
-       
-       
-    //    Toast.makeText(this, "REMEMBER TO LOCK SCREEN ORIENTATION! Long Press to drag markers.", Toast.LENGTH_LONG).show();
-    
-       // getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-33.8256, 151.2395), 17));
-      
+      // Makes map with road & earth appearance
         getMap().setMapType(GoogleMap.MAP_TYPE_HYBRID);
        getMap().setMyLocationEnabled(true);
 		
