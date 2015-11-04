@@ -18,4 +18,7 @@ These libraries require you to register your Application and obtain an API key f
 
 4) Google Geo Calculator Library -- See https://developers.google.com/maps/documentation/android-api/utility/?hl=en
 
+**IMPORTANT METHODS**
+
+The BaseIOIOLooper method is where you will do most of your calls to the IOIO board. 
 
