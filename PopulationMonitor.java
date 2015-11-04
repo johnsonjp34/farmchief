@@ -525,12 +525,7 @@ currentpopulation = (TextView) findViewById(R.id.currentpopulation);
     @Override
     public void onClick(View v) {
      // TODO Auto-generated method stub
-    	
-    	 //length = (EditText) popupView.findViewById(R.id.numberofrows);
-     	
-    	// lengthString = length.getText().toString();
-    	
-    	 
+    
     	rows = numberOfRows.getText().toString();
         width = rowWidth.getText().toString();
        String seeds = populationNumber.getText().toString();
@@ -557,12 +552,7 @@ currentpopulation = (TextView) findViewById(R.id.currentpopulation);
         else { Toast.makeText(getApplicationContext(), "FILL IN ROW & WIDTH INFO",
                 Toast.LENGTH_LONG).show(); }
              
-        	
         
-    	//feet
-    	   
-    	
-    	
     	EditText fieldname = (EditText) popupView.findViewById(R.id.fieldname);
     	fieldName = fieldname.getText().toString();
     	
@@ -625,15 +615,10 @@ currentpopulation = (TextView) findViewById(R.id.currentpopulation);
         	getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 16));
 		
     
-       
-	
-     
 		}
 		else { Toast.makeText(this, "NO GPS SIGNAL!", Toast.LENGTH_LONG).show(); }
     
       
-        
-        
         Button startMoving = (Button)findViewById(R.id.storebutton);
         
         startMoving.setOnClickListener(new Button.OnClickListener(){
@@ -742,9 +727,6 @@ public void onClick(View v) {
 		}
 		
 		
-		 
-
-	 
 		if (setIt == true){
 	
 			
@@ -794,13 +776,7 @@ public void onClick(View v) {
 	}
 
 
-	
-
-
-	
-
-
-
+	// highlights where you have been in the field
 
 public void PolygonFactory() {
 	
@@ -831,8 +807,9 @@ public void storageEngine() {
 	// Set up something like this to store your values so you can pull the map and progress back up later...
 	
 	// Creating an instance of ContentValues
+	/*
 			ContentValues contentValues = new ContentValues();
-			/*
+			
 			location = locationmanager
                     .getLastKnownLocation(LocationManager.GPS_PROVIDER);
 			
@@ -938,15 +915,10 @@ public void onLoadFinished(Loader<Cursor> arg0,
 		
 
 		
-		// Get the zoom level
-	
-		
 		// Creating an instance of LatLng to plot the location in Google Maps
 		 locationEngine = new LatLng(lat, lng);
 		 
 	
-		 
-		
 		// Drawing the marker in the Google Maps
 		drawPolygon(locationEngine, previousPoint, boomwidth, bear);
 		
@@ -961,10 +933,6 @@ public void onLoadFinished(Loader<Cursor> arg0,
 		// mLoadView.setText("POINTS LOADING");
 		 
 		
-		
-		
-		 
-		 
 	}
 	
 	
@@ -1025,22 +993,16 @@ public void onLoaderReset(Loader<Cursor> arg0) {
 		// TODO Auto-generated method stub
 
 		//Make all of this happen after hitting start
-		  
+		  //moves map and maintains position
 		       
 		        	  
 		          if(location!=null) {
 		              
 		            
-		             
-		        	  
-		             
-		            
 		        	CameraPosition cameraPosition = new CameraPosition(new LatLng(location.getLatitude(), location.getLongitude()), 17, 0, bearingorientation);
 		            
 		            getMap().animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 		            
-		            
-		        	
 		        	
 		        	  }
 		        	  
@@ -1049,10 +1011,6 @@ public void onLoaderReset(Loader<Cursor> arg0) {
 		        	
 		        		  Toast.makeText(getApplicationContext(), "No GPS Signal",
 		                           Toast.LENGTH_LONG).show(); }
-		
-		
-		
-		
 		
 		
 	}
@@ -1094,12 +1052,6 @@ public void onLoaderReset(Loader<Cursor> arg0) {
 		
 		 label = parent.getItemAtPosition(position).toString();
 		 
-      
-		
-		
-		//fieldLoader();
-		// popupWindowOpener.dismiss();
-		// TODO Auto-generated method stub
 		
 	}
 	
