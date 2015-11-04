@@ -29,3 +29,5 @@ PulseInput input1_ = ioio_.openPulseInput(new DigitalInput.Spec(1,Mode.PULL_DOWN
 
 Please see IOIO documentation for specific parameters. The biggest thing to note is that setting PulseMode to FREQ allows the channels to monitor the frequency of your input. This is key to determining planting rates and population. The PULL_DOWN mode is required because the board can't indicate a frequency of 0 when there is no input. Because of the pull of the board to 0V in this mode you will need to **MAKE SURE that you use the diode in the schematic or your op amp will not work correctly.**
 
+The apk file above is an older version of Farm Sprayer GPS. It includes a working 8 row planter monitor UI.
+
