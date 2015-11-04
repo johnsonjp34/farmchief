@@ -20,5 +20,5 @@ These libraries require you to register your Application and obtain an API key f
 
 **IMPORTANT METHODS**
 
-The BaseIOIOLooper method is where you will do most of your calls to the IOIO board. 
+The BaseIOIOLooper method is where you will do most of your calls to the IOIO board. You will OPEN your digital input or output channels here.
 
