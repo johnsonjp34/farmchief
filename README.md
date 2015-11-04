@@ -18,7 +18,14 @@ These libraries require you to register your Application and obtain an API key f
 
 4) Google Geo Calculator Library -- See https://developers.google.com/maps/documentation/android-api/utility/?hl=en
 
-**IMPORTANT METHODS**
+**IMPORTANT METHODS & CLASSES**
 
-The BaseIOIOLooper method is where you will do most of your calls to the IOIO board. You will OPEN your digital input or output channels here.
+--The BaseIOIOLooper method is where you will do most of your calls to the IOIO board. You will OPEN your digital input or output channels here.
+
+--Create a Looper class that extends the BaseIOIOLooper. Preferably you would want to make a thread for each input that you plan on using. In this example there are 8 to represent each row being monitored.
+
+--setup() - You can open your channels. For example: 
+PulseInput input1_ = ioio_.openPulseInput(new DigitalInput.Spec(1,Mode.PULL_DOWN), ClockRate.RATE_62KHz,  PulseMode.FREQ, false);
+
+Please see IOIO documentation for specific parameters. The biggest thing to note is that setting PulseMode to FREQ allows the channels to monitor the frequency of your input. This is key to determining planting rates and population. The PULL_DOWN mode is required because the board can't indicate a frequency of 0 when there is no input. Because of the pull of the board to 0V in this mode you will need to **MAKE SURE that you use the diode in the schematic or your op amp will not work correctly.**
 
